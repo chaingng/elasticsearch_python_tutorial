@@ -1,0 +1,23 @@
+.card {
+    margin: 0.25rem;
+}
+
+.application-body {
+    padding: 1.25em;
+}
+
+
+.search-form{
+    margin-bottom: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 1.25rem;
+}
+
+.price::placeholder{
+    text-align: right;
+}
+
+em{
+    color: red;
+}

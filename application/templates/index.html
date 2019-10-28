@@ -1,0 +1,64 @@
+<!doctype html>
+<title>書籍検索アプリケーション</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel=stylesheet href="{{ url_for('static', filename='style.css') }}">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<div class="application-body">
+    <a class="navbar-brand" href="/"><h3>書籍検索アプリケーション</h3></a>
+    <br>
+
+    <div class="search-form">
+        <form action="{{ url_for('show_results') }}" method=post>
+        <div class="form-group">
+            <label for="search_word">キーワード</label>
+            <input type="text" class="form-control" id="search_word" name=search_word placeholder="タイトルまたは本文", value={{request_form.search_word}}>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-lg-6">
+                    <label for="price_min">最低価格</label>
+                    <input type="text" class="form-control price" id="price_min" name=price_min placeholder="円" value={{request_form.price_min}}>
+                </div>
+                <div class="col-lg-6">
+                    <label for="price_max">最高価格</label>
+                    <input type="text" class="form-control price" id="price_max" name=price_max placeholder="円", value={{request_form.price_max}}>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">検索</button>
+        </form>
+    </div>
+<br>
+
+検索結果 {{ result_num }}件
+
+{% for book in books %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-2">
+                    <img src="{{book._source.largeImageUrl }}">
+                </div>
+                <div class="col-lg-10">
+                    <h4 class="card-title">{{ book._source.title }}</h5>
+                    <h5 class="card-title">{{ book._source.publisherName }}</h5>
+                    <h5 class="card-title">{{ book._source.itemPrice }}円</h5>
+                    <p class="card-text">
+                        {% if book.highlight  %}
+                            {{ book.highlight.itemCaption[0] | safe }}
+                            {% else %}
+                                 {{ book._source.itemCaption }}
+                            {% endif %}
+                        </p>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+{% else %}
+    投稿がありません
+{% endfor %}
+    </div>
