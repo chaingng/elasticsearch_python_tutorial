@@ -1,6 +1,6 @@
 # 「Pythonで作るはじめてのElasticsearchアプリケーション」サンプルコード
 
-「[Pythonで作るはじめてのElasticsearchアプリケーション](https://www.amazon.co.jp/dp/B082ZTXBNZ)」のサンプルコードです。
+「[Pythonで作るはじめてのElasticsearchアプリケーション](https://amzn.to/2PeF5Js)」のサンプルコードです。
 
 ## 目次
 1. はじめに 
