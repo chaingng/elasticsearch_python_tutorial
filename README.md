@@ -16,3 +16,24 @@
 11. アグリゲーション機能を利用して統計データを作成する
 12. Pythonによる検索アプリケーションの作成
 13. 最後に
+
+## Q&A
+
+### 1. [get_books_from_rakuten.py](https://github.com/chaingng/elasticsearch_python_tutorial/blob/master/get_books_from_rakuten.py)でエラーが発生
+
+エラー内容
+
+```
+pipenv run python get_books_from_rakuten.py
+> Traceback (most recent call last):
+>   File "get_books_from_rakuten.py", line 22, in <module>
+>     books.extend(data['Items'])
+> KeyError: 'Items'
+```
+
+解決方法
+
+認証エラーとなっている可能性が高いので、
+RakutenDevelopersで発行された「アプリID/デベロッパーID」を
+コード中の `[YOUR APPLICATION_ID]` に置き換えて記載されているかを確認
+
