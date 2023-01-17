@@ -15,7 +15,7 @@
         <form action="{{ url_for('show_results') }}" method=post>
         <div class="form-group">
             <label for="search_word">キーワード</label>
-            <input type="text" class="form-control" id="search_word" name=search_word placeholder="タイトルまたは本文", value={{request_form.search_word}}>
+            <input type="text" class="form-control" id="search_word" name=search_word placeholder="タイトルまたは本文" value={{request_form.search_word}}>
         </div>
         <div class="form-group">
             <div class="form-row">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-lg-6">
                     <label for="price_max">最高価格</label>
-                    <input type="text" class="form-control price" id="price_max" name=price_max placeholder="円", value={{request_form.price_max}}>
+                    <input type="text" class="form-control price" id="price_max" name=price_max placeholder="円" value={{request_form.price_max}}>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     <img src="{{book._source.largeImageUrl }}">
                 </div>
                 <div class="col-lg-10">
-                    <h4 class="card-title">{{ book._source.title }}</h5>
+                    <h4 class="card-title">{{ book._source.title }}</h4>
                     <h5 class="card-title">{{ book._source.publisherName }}</h5>
                     <h5 class="card-title">{{ book._source.itemPrice }}円</h5>
                     <p class="card-text">
